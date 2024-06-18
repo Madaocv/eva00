@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+    <!-- <link rel="stylesheet" href="{{ 'styles.css' | static_url }}"> -->
+    <!-- <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script> -->
+    <script src="{{ 'ckeditor/ckeditor.js' | static_url }}"></script>
+</head>
+<body>
+    <h1>Create a new post</h1>
+    <form action="/create_post" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required><br>
+        <input type="file" name="main_image" accept="image/*"><br>
+        <textarea name="text" placeholder="Write your post here"></textarea><br>
+        <input type="text" name="tags" placeholder="Tags (comma separated)"><br>
+        <input type="submit" value="Create Post">
+    </form>
+    <script>
+        CKEDITOR.replace('text');
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!-- Start Default Section -->
+<div class="padding-block blog-section">
+    <div class="container">
+        <!-- Start  row -->
+        <div class="row">
+            <!-- <img class="section-img" src="{{ 'img/menu-blog.svg' | static_url }}" alt=""> -->
+            <a href="/create_post" class="btn btn-primary">Create New Post</a>
+            <h2 class="section-title">All Posts</h2>
+        </div>
+        <!-- End  row -->
+        <!-- Start  row -->
+        <div class="row blog-content">
+            <div class="col-xs-12 col-sm-12 col-md-2"></div>
+            <div class="col-xs-12 col-sm-12 col-md-8">
+                {% for post in posts %}
+                <!-- Start blog article -->
+                <div class="blog-list">
+                    {% if post[5] %}
+                        <ul class="tags-post">
+                            {% for tag in post[5].split(' ') %}
+                            <li><a href="/posts?tag={{ tag.strip() }}">#{{ tag.strip() }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <h3 class="blog-title"><a href="/post/{{ post[0] }}">{{ post [1] }}</a></h3>
+
+                    <a href="/post/{{ post[0] }}" class="blog-img"><img src="{{ post[2] or 'img/blog-440x309.jpg' | static_url }}" alt=""></a>
+
+                    <div class="blog-info">
+                        <ul class="blog-info-left">
+                            <li class="weight-bold">{{ post[3] | format_datetime('%d/%m/%Y') }}</li>
+                        </ul>
+                        <ul class="blog-info-right">
+                            <li class="weight-bold">
+                                <a href="/edit_post/{{ post[0] }}" class="btn btn-secondary">Edit Post</a>
+                            </li>
+                            <li>
+                                <form action="/delete_post/{{ post[0] }}" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">Delete Post</button>
+                                </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- End blog article -->
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <!-- End  row -->
+
+    </div>
+    <!-- End  Page -->
+</div>
+{% endblock %}
+

@@ -1,0 +1,19 @@
+/*------------------------------------------------------------------
+[6. Progress Bar / .progress-wrapper]
+*/
+
+.progress-wrapper .progress-bar {
+    background-color: #dce453;
+    box-shadow: none;
+    height: 3px;
+}
+
+.progress-wrapper .progress {
+    background-color: #f3f7f7;
+    box-shadow: none;
+    height: 3px;
+    margin-top: 5px;
+}
+.skills-block .list-info li{
+    border: none;
+}

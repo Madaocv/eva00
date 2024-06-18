@@ -1,0 +1,53 @@
+/*------------------------------------------------------------------
+[2. Home / .header]
+*/
+.single-page .header {
+    background-color: transparent;
+    border-bottom: 1px solid #e0e6e9;
+    padding: 0;
+}
+
+.header {
+    background-color: #dce453;
+    padding: 100px 0;
+}
+
+.header .socials {
+    text-align: center;
+}
+
+.header .socials a {
+    color: #02263e;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 45px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.header .socials a:hover {
+    color: white;
+}
+
+.header .header-title {
+    position: relative;
+}
+
+.header .header-title .camera-icon {
+    border: none;
+    font-size: 20px;
+    outline: none;
+    position: absolute;
+    right: -20px;
+    top: -15px;
+}
+
+.header .header-title .camera-icon:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+    .header .header-title .camera-icon {
+        display: none;
+    }
+}

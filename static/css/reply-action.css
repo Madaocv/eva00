@@ -1,0 +1,23 @@
+.cancel-reply {
+    margin-top: -18px;
+    font-size: 50px;
+    cursor: pointer;
+    color: red;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle; /* Вирівнювання по вертикалі */
+}
+.sub-comment {
+    margin-left: 30px;
+}
+.hidden {
+    display: none;
+}
+.comment-header {
+    display: flex;
+    align-items: center;
+}
+.reply {
+    margin-left: 10px;
+    cursor: pointer;
+}

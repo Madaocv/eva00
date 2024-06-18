@@ -1,0 +1,190 @@
+/*------------------------------------------------------------------
+[7. Portfolio / .portfolio-section]
+*/
+.portfolio-section {
+    background-color: #ffffff;
+}
+
+.controls {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.controls .filter {
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    background-color: white;
+    border: none;
+    color: #02263e;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48px;
+    margin: auto;
+    outline: none;
+    transition: all .5s ease-in-out;
+}
+
+.controls .filter:hover {
+    color: #dce453;
+}
+
+.controls .active {
+    border-bottom: 1px solid #dce453;
+    color: #02263e;
+}
+
+.mix {
+    display: none;
+    float: left;
+    margin: 0 0 2% 0;
+    padding: 0;
+    width: 32%;
+}
+
+
+.mix:first-of-type {
+    margin-right: 2%;
+    width: 66%;
+}
+
+.mix img {
+    width: 100%;
+}
+
+.works-grid {
+    border: 0;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.work-item-cont {
+    -moz-transition: all .5s ease-in-out;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    align-items: center;
+    background-color: rgba(108, 121, 136, 0.1);
+    color: white;
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    transition: all .5s ease-in-out;
+    visibility: hidden;
+    width: 100%;
+}
+
+.popup-content {
+    display: block;
+    position: relative;
+}
+
+.popup-content:hover .work-item-cont {
+    background-color: rgba(108, 121, 136, 0.7);
+    visibility: visible;
+}
+
+.btn-general {
+    display: block;
+    margin: 24px auto auto;
+}
+
+.single-page .mix {
+    margin: 1%;
+    width: 31%;
+}
+
+.single-page .mix:first-of-type {
+    width: 31%;
+}
+
+@media (max-width: 991px) {
+    .single-page .mix {
+        width: 48%;
+    }
+
+    .single-page .mix:first-of-type {
+        width: 48%;
+    }
+}
+
+@media (max-width: 762px) {
+    .single-page .mix {
+        margin: 0 0 5%;
+        width: 100%;
+    }
+
+    .single-page .mix:first-of-type {
+        margin: 0 0 5%;
+        width: 100%;
+    }
+}
+
+/* modal box */
+.box-opened {
+    margin: auto;
+    width: 500px;
+}
+
+.modal-box-img {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+}
+.mfp-close-btn-in .mfp-close {
+    color: white;
+    top: -16px;
+}
+.modal-box-img .mfp-close:hover{
+    opacity: 1;
+}
+.modal-box-txt {
+    background-color: white;
+    margin: auto;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+
+@media (max-width: 749px) {
+    .mfp-container .mfp-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 570px) {
+    .box-opened {
+        width: 98%;
+    }
+
+    .modal-box-txt {
+        width: 100%;
+    }
+
+    .modal-box-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 546px) {
+    .mfp-close {
+        right: -14px;
+        top: -10px;
+    }
+
+    .mfp-close:active {
+        top: -10px;
+    }
+}

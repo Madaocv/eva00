@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------
+[14. Scroll to Top]
+*/
+.scroll-to-top {
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    background-color: #30404d;
+    border-radius: 50%;
+    bottom: 100px;
+    color: #ffffff;
+    display: none;
+    font-size: 14px;
+    height: 48px;
+    line-height: 52px;
+    padding: 0;
+    position: fixed;
+    right: 10px;
+    text-align: center;
+    transition: all .5s ease-in-out;
+    width: 48px;
+}
+
+.scroll-to-top:hover {
+    background-color: #dce453;
+    color: white;
+}
+
+.scroll-to-top .uf-arrow-up {
+    line-height: 52px;
+}
+
+@media (max-width: 749px) {
+    .scroll-to-top .scroll-to-top {
+        bottom: 50px;
+    }
+}

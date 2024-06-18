@@ -1,0 +1,31 @@
+/*------------------------------------------------------------------
+[4. About / .about-section]
+*/
+.about-section h3 {
+    margin-bottom: 20px;
+}
+.about-section .list-info:last-of-type{
+    border-bottom: 1px solid rgba(108, 121, 136, 0.1);
+}
+
+.about-section .btn-print {
+    background-color: #f5f5f5;
+    color: #224256;
+    margin-top: 15px;
+}
+
+.about-section .btn-print:hover {
+    background-color: #02263e;
+    color: white;
+}
+
+.about-section .btn-download {
+    background-color: #02263e;
+    color: #fffefe;
+    margin-top: 15px;
+}
+
+.about-section .btn-download:hover {
+    background-color: #dce453;
+    color: white;
+}

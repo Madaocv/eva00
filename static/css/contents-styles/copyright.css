@@ -1,0 +1,18 @@
+/*------------------------------------------------------------------
+[10. Copyright / .copyright]
+*/
+.single-page .copyright {
+    margin-top: 0;
+}
+
+.copyright {
+    border-top: 1px solid rgba(108, 121, 136, 0.1);
+    color: #02263e;
+    margin-top: 60px;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.copyright i {
+    font-size: 10px;
+}

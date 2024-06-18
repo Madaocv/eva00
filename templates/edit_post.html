@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title>
+    <!-- <link rel="stylesheet" href="{{ 'styles.css' | static_url }}"> -->
+    <script src="{{ 'ckeditor/ckeditor.js' | static_url }}"></script>
+    <script src="{{ 'ckeditor/config.js' | static_url }}"></script>
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <form action="/edit_post/{{ post[0] }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" value="{{ post[1] }}" required><br>
+        <input type="file" name="main_image" accept="image/*"><br>
+        <textarea name="text" placeholder="Write your post here">{{ post[4] }}</textarea><br>
+        <input type="text" name="tags" placeholder="Tags (comma separated)" value="{{ post[5] }}"><br>
+        <input type="submit" value="Update Post">
+    </form>
+    <script>
+        CKEDITOR.replace('text');
+    </script>
+</body>
+</html>

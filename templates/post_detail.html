@@ -1,0 +1,119 @@
+{% extends "post_base.html" %}
+{% block content %}
+<!-- sharethis add -->
+<div class="sharethis-sticky-share-buttons"></div>
+<div class="padding-block blog-section">
+    <!-- Start  Page -->
+    <div class="container">
+        <!-- Start  row -->
+        <div class="row">
+            <img class="section-img" src="{{ 'img/menu-blog.svg' | static_url }}" alt="">
+            <h2 class="section-title">Blog</h2>
+        </div>
+        <!-- End  row -->
+        <!-- Start  row -->
+        <div class="row blog-content">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+                <!-- Start post content-->
+                <div class="post-content">
+
+                    {% if post[5] %}
+                        <ul class="tags-post">
+                            {% for tag in post[5].split(' ') %}
+                            <li><a href="/posts?tag={{ tag.strip() }}">#{{ tag.strip() }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <h3>{{ post[1] }}</h3>
+
+                    <img src="{{ post[2] or 'img/blog-770x540.jpg' | static_url }}" alt="">
+
+                    <div class="blog-info">
+                        <ul class="blog-info-left">
+                            <li class="weight-bold">{{ post[3] | format_datetime('%d/%m/%Y') }}</li>
+                            <li><a href="#">{{ comments|length }} comments</a></li>
+                        </ul>
+                    </div>
+
+                    {{ post[4] | safe }}
+                </div>
+                <!-- End post content-->
+
+                <!-- Start article navigation -->
+                <div class="article-navigation">
+                    {% if prev_post %}
+                    <a class="article-btn-prev" href="/post/{{ prev_post[0] }}"><i class="uf uf-arrow-left-small"></i>Previous Article</a>
+                    {% endif %}
+                    {% if next_post %}
+                    <a class="article-btn-next" href="/post/{{ next_post[0] }}">Next Article<i class="uf uf-arrow-right-small"></i></a>
+                    {% endif %}
+                </div>
+                <!-- End article navigation -->
+
+                <!-- Start article comments -->
+                <div class="article-comments" id="comments-section">
+
+                    <h3>Comments</h3>
+                    {% for comment in comments %}
+                    {% if not comment[4] %}
+                        <div class="comment-item" id="comment-{{ comment[0] }}">
+                            <div class="comment-header">
+                                <h5><i class="uf uf-user"></i>{{ comment[2] }} <span>{{ comment[5] | format_datetime('%d/%m/%Y at %I:%M %p') }}</span></h5>
+                                <a href="javascript:void(0);" class="reply" onclick="showReplyForm({{ comment[0] }}, this)">Reply</a>
+                                <span class="cancel-reply" onclick="cancelReply()" style="display: none;">&times;</span>
+                            </div>
+                            <div class="comment-txt">{{ comment[3] }}</div>
+
+                            <div class="sub-comments" id="sub-comments-{{ comment[0] }}">
+                                {% for subcomment in comments %}
+                                    {% if subcomment[4] == comment[0] %}
+                                        <div class="sub-comment" id="comment-{{ subcomment[0] }}">
+                                            <div class="comment-header">
+                                                <h5><i class="uf uf-user"></i>{{ subcomment[2] }} <span>{{ subcomment[5] | format_datetime('%d/%m/%Y at %I:%M %p') }}</span></h5>
+                                            </div>
+                                            <div class="comment-txt">{{ subcomment[3] }}</div>
+
+                                            <div class="sub-comments" id="sub-comments-{{ subcomment[0] }}"></div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+                <!-- End article comments -->
+
+                <!-- Start post form-->
+                <div id="comment-form-container">
+                    <h3 id="add-comment-title">Add comment</h3>
+                    <form action="/post/{{ post[0] }}" method="post" class="post-form" id="comment-form">
+                        <input type="text" name="name" class="input-text" placeholder="Name" required>
+                        <textarea name="message" class="input-textarea" placeholder="Message" required></textarea>
+                        <input type="hidden" name="parent_id" value="" id="parent-id-input">
+                        <input type="submit" class="btn-general btn-submit" value="Post Comment">
+                    </form>
+                </div>
+                <!-- End post form-->
+
+            </div>
+        </div>
+        <!-- End  row -->
+    </div>
+    <!-- End  Page -->
+</div>
+<!-- End Default Section -->
+
+{% endblock %}
+
+{% block jsscripts %}
+<script src="{{ 'js/reply-action.js' | static_url }}"></script>
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{{ 'css/reply-action.css' | static_url }}">
+{% endblock %}
