@@ -1,0 +1,27 @@
+.cke_contents iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+.cke_contents {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.embed-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

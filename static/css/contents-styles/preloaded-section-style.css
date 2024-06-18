@@ -1,0 +1,37 @@
+/*------------------------------------------------------------------
+[15. Preloaded Section Style]
+*/
+#jpreOverlay {
+    background: #fff url(../../img/loading_pencil.gif) no-repeat center;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 999999999;
+}
+
+#jpreSlide {
+    height: 30%;
+    text-align: center;
+    width: 50%;
+}
+
+#jpreLoader {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+#jprePercentage {
+    color: #ccc;
+    font-weight: bold;
+    text-align: center;
+    top: -100%;
+}
+
+#jpreButton {
+    display: none !important;
+}

@@ -1,0 +1,74 @@
+/*------------------------------------------------------------------
+[13. Widget]
+*/
+.widget {
+    margin-bottom: 32px;
+}
+
+.widget-title {
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+.list-info li {
+    border-bottom: 1px solid rgba(108, 121, 136, 0.1);
+    color: #02263e;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.list-info li:last-of-type {
+    border-bottom: none;
+}
+
+.list-info li span {
+    float: right;
+    font-weight: 400;
+}
+
+.popular-post {
+    border-bottom: 1px solid rgba(108, 121, 136, 0.1);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.popular-post:last-of-type {
+    border-bottom: none;
+}
+
+.popular-post li {
+    font-weight: 300;
+    margin-bottom: 0;
+    line-height: 28px;
+}
+
+.popular-post .title-article-viewed {
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    color: #02263e;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    transition: all .5s ease-in-out;
+    margin-bottom: 0;
+}
+
+.popular-post .title-article-viewed:hover {
+    color: #dce453;
+}
+
+.tags-post {
+    margin: 0;
+}
+
+.tags-post li {
+    display: inline-block;
+    margin: 0 8px 0 0;
+}
+
+.tags-post a {
+    line-height: 24px;
+}

@@ -1,0 +1,34 @@
+/*------------------------------------------------------------------
+[9. Contacts / .contact-section]
+*/
+.contact-section {
+    background-color: #f0f3f3;
+    padding-bottom: 0;
+}
+
+.contact-section .section-title {
+    color: #02263e;
+    margin-bottom: 50px;
+}
+
+.contact-section .list-info li{
+    border: none;
+    margin-bottom: 8px;
+}
+
+.contact-section .social-icons a {
+    background-color: #dce453;
+    border-radius: 50%;
+    color: #f3f7f7;
+    display: inline-block;
+    font: 400 14px/42px UkieFont;
+    height: 42px;
+    margin: 20px 8px 20px 0;
+    text-align: center;
+    width: 42px;
+}
+
+.contact-section .social-icons a:hover, .contact-section .social-icons a:focus, .contact-section .social-icons a:active {
+    background-color: #02263e;
+    color: #ffffff;
+}

@@ -1,0 +1,67 @@
+/* --------------------------------------------------------------
+
+[Master Stylesheet]
+
+Template: My Desktop
+Version: 1.0
+Last change: 15/09/16
+Assigned to: UKIE WEB
+Primary use: Resume personal website
+
+-----------------------------------------------------------------
+
+[Table of contents]
+
+1. General setting
+2. Home / .header
+3. Menu / .menu
+4. About / .about-section
+5. Resume / .resume-section
+6. Progress Bar / .progress-wrapper
+7. Portfolio / .portfolio-section
+8. Blog / .blog-section
+9. Contacts / .contact-section
+10. Copyright / .copyright
+11. Page 404
+12. Pagination
+13. Widget
+14. Scroll to Top
+15. Preloaded Section Style
+
+------------------------------------------------------------------
+
+# [Color codes]
+
+# Light green (main color): #dce453
+# Dark blue (text, buttons): #02263e
+# Light grey (footer): #f0f3f3
+
+-------------------------------------------------------------------
+
+[Typography]
+
+Body copy:   14px/20px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Header1:     40px/45px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Header2:     30px/30px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Header3:     24px/32px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Header4:     16px/26px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Input, textarea:   14px/20px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+Sidebar heading:   24px/32px Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+-------------------------------------------------------------------*/
+
+@import "contents-styles/general-setting.css";
+@import "contents-styles/header.css";
+@import "contents-styles/menu.css";
+@import "contents-styles/about.css";
+@import "contents-styles/resume.css";
+@import "contents-styles/progress-bar.css";
+@import "contents-styles/portfolio.css";
+@import "contents-styles/blog.css";
+@import "contents-styles/contacts.css";
+@import "contents-styles/copyright.css";
+@import "contents-styles/404-page.css";
+@import "contents-styles/pagination.css";
+@import "contents-styles/widget.css";
+@import "contents-styles/scroll-to-top.css";
+@import "contents-styles/preloaded-section-style.css";
