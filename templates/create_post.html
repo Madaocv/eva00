@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
-    <!-- <link rel="stylesheet" href="{{ 'styles.css' | static_url }}"> -->
-    <!-- <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script> -->
     <script src="{{ 'ckeditor/ckeditor.js' | static_url }}"></script>
 </head>
 <body>
     <h1>Create a new post</h1>
     <form action="/create_post" method="post" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Title" required><br>
+        <!-- Поля для заголовків -->
+        <input type="text" name="title_uk" placeholder="Title (Ukrainian)" required><br>
+        <input type="text" name="title_en" placeholder="Title (English)" required><br>
+
+        <!-- Поле для завантаження зображення -->
         <input type="file" name="main_image" accept="image/*"><br>
-        <textarea name="text" placeholder="Write your post here"></textarea><br>
+
+        <!-- Поля для текстів -->
+        <textarea name="text_uk" placeholder="Write your post here (Ukrainian)"></textarea><br>
+        <textarea name="text_en" placeholder="Write your post here (English)"></textarea><br>
+
+        <!-- Поле для тегів -->
         <input type="text" name="tags" placeholder="Tags (comma separated)"><br>
+
+        <!-- Кнопка для створення посту -->
         <input type="submit" value="Create Post">
     </form>
+
+    <!-- Ініціалізація CKEditor для текстових полів -->
     <script>
-        CKEDITOR.replace('text');
+        CKEDITOR.replace('text_uk');
+        CKEDITOR.replace('text_en');
     </script>
 </body>
 </html>

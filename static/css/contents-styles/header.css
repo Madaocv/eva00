@@ -8,10 +8,13 @@
 }
 
 .header {
+    position: relative;
     background-color: #dce453;
     padding: 100px 0;
 }
-
+.container {
+    position: relative;
+}
 .header .socials {
     text-align: center;
 }

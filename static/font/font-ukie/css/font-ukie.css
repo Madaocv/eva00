@@ -326,6 +326,14 @@
 .uf-facebook:before {
     content: "\e90a";
 }
+.uf-ukraine:before {
+    content: "UA";
+    font: caption;
+}
+.uf-english:before {
+    content: "EN";
+    font: caption;
+}
 .uf-link:before {
     content: "\e90c";
 }

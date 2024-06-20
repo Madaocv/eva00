@@ -6,7 +6,7 @@
         <!-- Start  row -->
         <div class="row">
             <img class="section-img" src="{{ 'img/menu-blog.svg' | static_url }}" alt="">
-            <h2 class="section-title">Blog</h2>
+            <h2 class="section-title">{{ request.ctx.translations['index']['blog'] }}</h2>
         </div>
         <!-- End  row -->
         <!-- Start  row -->
@@ -16,25 +16,32 @@
                 {% for post in posts %}
                 <!-- Start blog article -->
                 <div class="blog-list">
-                    {% if post[5] %}
+                    {% if post[7] %}
                         <ul class="tags-post">
-                            {% for tag in post[5].split(' ') %}
+                            {% for tag in post[7].split(' ') %}
                             <li><a href="/posts?tag={{ tag.strip() }}">#{{ tag.strip() }}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}
 
-                    <h3 class="blog-title"><a href="/post/{{ post[0] }}">{{ post [1] }}</a></h3>
+                    <h3 class="blog-title"><a href="/post/{{ post[0] }}">
 
-                    <a href="/post/{{ post[0] }}" class="blog-img"><img src="{{ post[2] or 'img/blog-440x309.jpg' | static_url }}" alt=""></a>
+                        {% if request.ctx.lang == 'uk' %}
+                            {{ post[1] }}
+                        {% else %}
+                            {{ post[2] }}
+                        {% endif %}
+                    </a></h3>
+
+                    <a href="/post/{{ post[0] }}" class="blog-img"><img src="{{ post[3] or 'img/blog-440x309.jpg' | static_url }}" alt="" style="width: 750px; height: 750px; object-fit: cover;"></a>
 
                     <div class="blog-info">
                         <ul class="blog-info-left">
-                            <li class="weight-bold">{{ post[3] | format_datetime('%d/%m/%Y') }}</li>
-                            <li><a href="/post/{{ post[0] }}">{{ post[6] }} comments</a></li>
+                            <li class="weight-bold">{{ post[4] | format_datetime('%d/%m/%Y') }}</li>
+                            <li><a href="/post/{{ post[0] }}">{{ post[8] }} {{ request.ctx.translations['posts']['comments'] }}</a></li>
                         </ul>
                         <ul class="blog-info-right">
-                            <li class="weight-bold"><a href="/post/{{ post[0] }}">Read more</a></li>
+                            <li class="weight-bold"><a href="/post/{{ post[0] }}">{{ request.ctx.translations['posts']['readmore'] }}</a></li>
                         </ul>
                     </div>
 
@@ -49,10 +56,10 @@
         <!-- Start  row -->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-2"></div>
-            <div class="col-xs-12 col-sm-12 col-md-5">
+            <div class="col-xs-12 col-sm-12 col-md-8">
 
                 <!-- Start  pagination -->
-                 {% if pagination %}
+                {% if pagination %}
                 <ul class="pagination">
                     {% for i in range(1, total_pages + 1) %}
                         <li><a class="{% if current_page == i %}active{% endif %}" href="/posts?page={{ i }}{% if selected_tag %}&tag={{ selected_tag }}{% endif %}">{{ i }}</a></li>

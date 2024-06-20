@@ -8,7 +8,7 @@
         <!-- Start  row -->
         <div class="row">
             <img class="section-img" src="{{ 'img/menu-blog.svg' | static_url }}" alt="">
-            <h2 class="section-title">Blog</h2>
+            <h2 class="section-title">{{ request.ctx.translations['index']['blog'] }}</h2>
         </div>
         <!-- End  row -->
         <!-- Start  row -->
@@ -27,28 +27,34 @@
                         </ul>
                     {% endif %}
 
-                    <h3>{{ post[1] }}</h3>
+                    <h3>
+                        <h3>{{ post[1] if request.ctx.lang == 'uk' else post[2] }}</h3>
+                    </h3>
 
-                    <img src="{{ post[2] or 'img/blog-770x540.jpg' | static_url }}" alt="">
+                    <img src="{{ post[3] or 'img/blog-770x540.jpg' | static_url }}" alt="">
 
                     <div class="blog-info">
                         <ul class="blog-info-left">
-                            <li class="weight-bold">{{ post[3] | format_datetime('%d/%m/%Y') }}</li>
-                            <li><a href="#">{{ comments|length }} comments</a></li>
+                            <li class="weight-bold">{{ post[4] | format_datetime('%d/%m/%Y') }}</li>
+                            <li><a href="#">{{ comments|length }} {{ request.ctx.translations['posts']['comments'] }}</a></li>
                         </ul>
                     </div>
-
-                    {{ post[4] | safe }}
+                    {% if request.ctx.lang == 'uk' %}
+                    {{ post[5] | safe }}
+                    {% else %}
+                    {{ post[6] | safe }}
+                    {% endif %}
+                    
                 </div>
                 <!-- End post content-->
 
                 <!-- Start article navigation -->
                 <div class="article-navigation">
                     {% if prev_post %}
-                    <a class="article-btn-prev" href="/post/{{ prev_post[0] }}"><i class="uf uf-arrow-left-small"></i>Previous Article</a>
+                    <a class="article-btn-prev" href="/post/{{ prev_post[0] }}"><i class="uf uf-arrow-left-small"></i>{{ request.ctx.translations['post_detail']['previous_article'] }}</a>
                     {% endif %}
                     {% if next_post %}
-                    <a class="article-btn-next" href="/post/{{ next_post[0] }}">Next Article<i class="uf uf-arrow-right-small"></i></a>
+                    <a class="article-btn-next" href="/post/{{ next_post[0] }}">{{ request.ctx.translations['post_detail']['next_article'] }}<i class="uf uf-arrow-right-small"></i></a>
                     {% endif %}
                 </div>
                 <!-- End article navigation -->
@@ -56,13 +62,13 @@
                 <!-- Start article comments -->
                 <div class="article-comments" id="comments-section">
 
-                    <h3>Comments</h3>
+                    <h3>{{ request.ctx.translations['post_detail']['comments'] }}</h3>
                     {% for comment in comments %}
                     {% if not comment[4] %}
                         <div class="comment-item" id="comment-{{ comment[0] }}">
                             <div class="comment-header">
                                 <h5><i class="uf uf-user"></i>{{ comment[2] }} <span>{{ comment[5] | format_datetime('%d/%m/%Y at %I:%M %p') }}</span></h5>
-                                <a href="javascript:void(0);" class="reply" onclick="showReplyForm({{ comment[0] }}, this)">Reply</a>
+                                <a href="javascript:void(0);" class="reply" onclick="showReplyForm({{ comment[0] }}, this)">{{ request.ctx.translations['post_detail']['reply'] }}</a>
                                 <span class="cancel-reply" onclick="cancelReply()" style="display: none;">&times;</span>
                             </div>
                             <div class="comment-txt">{{ comment[3] }}</div>
@@ -90,12 +96,12 @@
 
                 <!-- Start post form-->
                 <div id="comment-form-container">
-                    <h3 id="add-comment-title">Add comment</h3>
+                    <h3 id="add-comment-title">{{ request.ctx.translations['post_detail']['add_comment'] }}</h3>
                     <form action="/post/{{ post[0] }}" method="post" class="post-form" id="comment-form">
-                        <input type="text" name="name" class="input-text" placeholder="Name" required>
-                        <textarea name="message" class="input-textarea" placeholder="Message" required></textarea>
+                        <input type="text" name="name" class="input-text" placeholder="{{ request.ctx.translations['post_detail']['form_name'] }}" required>
+                        <textarea name="message" class="input-textarea" placeholder="{{ request.ctx.translations['post_detail']['post_comment'] }}" required></textarea>
                         <input type="hidden" name="parent_id" value="" id="parent-id-input">
-                        <input type="submit" class="btn-general btn-submit" value="Post Comment">
+                        <input type="submit" class="btn-general btn-submit" value="{{ request.ctx.translations['post_detail']['post_comment'] }}">
                     </form>
                 </div>
                 <!-- End post form-->
@@ -107,7 +113,6 @@
     <!-- End  Page -->
 </div>
 <!-- End Default Section -->
-
 {% endblock %}
 
 {% block jsscripts %}

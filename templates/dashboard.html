@@ -19,21 +19,25 @@
                 {% for post in posts %}
                 <!-- Start blog article -->
                 <div class="blog-list">
-                    {% if post[5] %}
+                    {% if post[7] %}
                         <ul class="tags-post">
-                            {% for tag in post[5].split(' ') %}
+                            {% for tag in post[7].split(' ') %}
                             <li><a href="/posts?tag={{ tag.strip() }}">#{{ tag.strip() }}</a></li>
                             {% endfor %}
                         </ul>
                     {% endif %}
 
-                    <h3 class="blog-title"><a href="/post/{{ post[0] }}">{{ post [1] }}</a></h3>
+                    <h3 class="blog-title">
+                        <a href="/post/{{ post[0] }}">{{ post[1] }} / {{ post[2] }}</a>
+                    </h3>
 
-                    <a href="/post/{{ post[0] }}" class="blog-img"><img src="{{ post[2] or 'img/blog-440x309.jpg' | static_url }}" alt=""></a>
+                    <a href="/post/{{ post[0] }}" class="blog-img">
+                        <img src="{{ post[3] or 'img/blog-440x309.jpg' | static_url }}" alt="">
+                    </a>
 
                     <div class="blog-info">
                         <ul class="blog-info-left">
-                            <li class="weight-bold">{{ post[3] | format_datetime('%d/%m/%Y') }}</li>
+                            <li class="weight-bold">{{ post[4] | format_datetime('%d/%m/%Y') }}</li>
                         </ul>
                         <ul class="blog-info-right">
                             <li class="weight-bold">
@@ -61,4 +65,3 @@
     <!-- End  Page -->
 </div>
 {% endblock %}
-

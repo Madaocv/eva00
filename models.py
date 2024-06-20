@@ -16,10 +16,12 @@ async def init_db():
         await db.execute('''
             CREATE TABLE IF NOT EXISTS blogposts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT NOT NULL,
+                title_uk TEXT NOT NULL,
+                title_en TEXT NOT NULL,
                 main_image TEXT,
                 publication_date TEXT DEFAULT CURRENT_TIMESTAMP,
-                text TEXT NOT NULL,
+                text_uk TEXT NOT NULL,
+                text_en TEXT NOT NULL,
                 tags TEXT
             )
         ''')
@@ -59,31 +61,33 @@ class User:
 
 
 class BlogPost:
-    def __init__(self, title, main_image, text, tags):
-        self.title = title
+    def __init__(self, title_uk, title_en, main_image, text_uk, text_en, tags):
+        self.title_uk = title_uk
+        self.title_en = title_en
         self.main_image = main_image
         self.publication_date = datetime.now().isoformat()
-        self.text = text
+        self.text_uk = text_uk
+        self.text_en = text_en
         self.tags = tags
 
     @staticmethod
-    async def create(title, main_image, text, tags):
+    async def create(title_uk, title_en, main_image, text_uk, text_en, tags):
         async with aiosqlite.connect(DB_PATH) as db:
             cursor = await db.execute('''
-                INSERT INTO blogposts (title, main_image, publication_date, text, tags)
-                VALUES (?, ?, ?, ?, ?)
-            ''', (title, main_image, datetime.now().isoformat(), text, tags))
+                INSERT INTO blogposts (title_uk, title_en, main_image, publication_date, text_uk, text_en, tags)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ''', (title_uk, title_en, main_image, datetime.now().isoformat(), text_uk, text_en, tags))
             await db.commit()
             return cursor.lastrowid
 
     @staticmethod
-    async def update(post_id, title, main_image, text, tags):
+    async def update(post_id, title_uk, title_en, main_image, text_uk, text_en, tags):
         async with aiosqlite.connect(DB_PATH) as db:
             await db.execute('''
                 UPDATE blogposts
-                SET title = ?, main_image = ?, text = ?, tags = ?
+                SET title_uk = ?, title_en = ?, main_image = ?, text_uk = ?, text_en = ?, tags = ?
                 WHERE id = ?
-            ''', (title, main_image, text, tags, post_id))
+            ''', (title_uk, title_en, main_image, text_uk, text_en, tags, post_id))
             await db.commit()
 
     @staticmethod

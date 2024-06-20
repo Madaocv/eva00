@@ -32,3 +32,36 @@
     background-color: #02263e;
     color: #ffffff;
 }
+
+.social-icons-switch-language {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: flex;
+    gap: 13px;
+}
+
+.social-icons-switch-language a {
+    background-color: #f3f7f7;
+    border-radius: 50%;
+    color: #dce453;
+    display: inline-block;
+    font: 400 14px/42px UkieFont;
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    line-height: 42px;
+    margin: 0;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icons-switch-language a:hover {
+    background-color: #23231b;
+    color: #f3f7f7;
+}
+
+.social-icons-switch-language a:active {
+    background-color: #b0b83d;
+    color: #f3f7f7;
+}

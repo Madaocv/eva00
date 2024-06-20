@@ -46,9 +46,9 @@
                 <div id="menus" class="mob-menu top-menu">
                     <!-- Start menu-->
                     <ul class="nav" role="tablist">
-                        <li><a href="/#navabout">About</a></li>
-                        <li><a href="/posts">Blog</a></li>
-                        <li><a href="/#navcontact">Contacts</a></li>
+                        <li><a href="/#navabout">{{ request.ctx.translations['index']['about'] }}</a></li>
+                        <li><a href="/posts">{{ request.ctx.translations['index']['blog'] }}</a></li>
+                        <li><a href="/#navcontact">{{ request.ctx.translations['index']['contacts'] }}</a></li>
                     </ul>
                     <!-- End menu-->
                 </div>
@@ -65,7 +65,7 @@
 
 {% block content %}{% endblock %}
 <!-- Start Copyright -->
-<div class="copyright"><i class="uf uf-copyright"></i> Copyright 2016 By UkieWeb. All rights reserved.</div>
+<div class="copyright"><i class="uf uf-copyright"></i> Copyright 2024 By EVAØØ. All rights reserved.</div>
 <!-- End Copyright -->
 
 <!-- Scroll to Top -->
