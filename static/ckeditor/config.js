@@ -36,11 +36,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.extraPlugins = 'youtube';
+	config.extraPlugins = 'youtube,base64image';
 	config.youtube_width = '750';
     config.youtube_height = '422';
     config.youtube_responsive = true;
 
     // Set the editor height
     config.height = 500;  // Зміна висоти редактора на 500 пікселів
+	// config.extraPlugins = "base64image";
 };
