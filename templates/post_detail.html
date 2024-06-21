@@ -21,7 +21,7 @@
 
                     {% if post[5] %}
                         <ul class="tags-post">
-                            {% for tag in post[5].split(' ') %}
+                            {% for tag in post[7].split(' ') %}
                             <li><a href="/posts?tag={{ tag.strip() }}">#{{ tag.strip() }}</a></li>
                             {% endfor %}
                         </ul>
