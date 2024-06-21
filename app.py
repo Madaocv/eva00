@@ -311,8 +311,8 @@ async def edit_post(request, post_id):
             main_image_file = request.files.get('main_image')
             main_image_url = await save_file(main_image_file)
         else:
-            logger.info(post[2])
-            main_image_url = post[2]  # Якщо зображення не завантажене, залишити старе
+            logger.info(post[3])
+            main_image_url = post[3]  # Якщо зображення не завантажене, залишити старе
         await BlogPost.update(
             post_id,
             title_uk,
