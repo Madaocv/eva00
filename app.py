@@ -21,6 +21,8 @@ from dotenv import load_dotenv
 import aiofiles
 from datetime import datetime
 import json as std_json
+from config import REQUEST_MAX_SIZE
+
 # Завантаження змінних оточення
 load_dotenv()
 
@@ -46,6 +48,7 @@ logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
 app = Sanic("BlogApp")
+app.config.REQUEST_MAX_SIZE = REQUEST_MAX_SIZE
 Extend(app)
 
 session = Session(app, interface=InMemorySessionInterface())
