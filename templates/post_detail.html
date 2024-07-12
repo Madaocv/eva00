@@ -31,7 +31,7 @@
                         <h3>{{ post[1] if request.ctx.lang == 'uk' else post[2] }}</h3>
                     </h3>
 
-                    <img src="{{ post[3] or 'img/blog-770x540.jpg' | static_url }}" alt="">
+                    <img src="{{ post[3] or 'img/blog-770x540.jpg' | static_url }}" alt="" style="width: 100%; height: auto;">
 
                     <div class="blog-info">
                         <ul class="blog-info-left">

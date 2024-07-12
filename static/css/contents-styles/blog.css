@@ -38,6 +38,13 @@
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .blog-img img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .blog-section .blog-info .blog-info-left, .blog-section .blog-info .blog-info-right {
     margin-bottom: 10px;
     width: 50%;

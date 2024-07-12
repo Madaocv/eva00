@@ -33,7 +33,9 @@
                         {% endif %}
                     </a></h3>
 
-                    <a href="/post/{{ post[0] }}" class="blog-img"><img src="{{ post[3] or 'img/blog-440x309.jpg' | static_url }}" alt="" style="width: 750px; height: 750px; object-fit: cover;"></a>
+                    <a href="/post/{{ post[0] }}" class="blog-img">
+                        <img src="{{ post[3] or 'img/blog-440x309.jpg' | static_url }}" alt="" style="width: 750px; height: 750px; object-fit: cover;">
+                    </a>
 
                     <div class="blog-info">
                         <ul class="blog-info-left">
